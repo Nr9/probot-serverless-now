@@ -1,31 +1,34 @@
 {
   "author": "Thibault Derousseaux <tibdex@gmail.com>",
   "description": "Probot Wrapper to run GitHub Apps as Lambdas in Zeit's Now 2.0",
-  "dependencies": {
-    "@types/node": "^12.0.7",
-    "probot": "^9.2.13"
+  "peerDependencies": {
+    "probot": "^9.5.3"
   },
   "devDependencies": {
+    "probot": "^9.5.3",
     "@types/dotenv": "^6.1.1",
-    "@types/jest": "^24.0.13",
-    "@types/supertest": "^2.0.7",
-    "@types/uuid": "^3.4.4",
-    "dotenv": "^8.0.0",
-    "jest": "^24.8.0",
-    "jest-junit": "^6.4.0",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.12",
+    "@types/supertest": "^2.0.8",
+    "@types/uuid": "^3.4.5",
+    "dotenv": "^8.1.0",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "jest-junit": "^8.0.0",
     "prettier": "^1.18.2",
     "supertest": "^4.0.2",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.17.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.1",
-    "uuid": "^3.3.2"
+    "typescript": "^3.6.4",
+    "uuid": "^3.3.3"
   },
   "engines": {
-    "node": ">= 8.10.0"
+    "node": "10"
   },
   "files": [
-    "lib/"
+    "lib/",
+    "/src/"
   ],
   "keywords": [
     "probot",
@@ -37,14 +40,18 @@
   ],
   "license": "MIT",
   "main": "lib",
-  "name": "probot-serverless-now",
-  "repository": "github:tibdex/probot-serverless-now",
+  "name": "@nr9/probot-serverless-now",
+  "repository": "github:Nr9/probot-serverless-now",
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "prepublishOnly": "yarn build",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.{js,json,md,ts,yml}\"",
     "test": "jest",
-    "tslint": "tslint --format stylish --project ."
+    "prettier": "prettier -c \"**/*.{js,json,md,ts,yml}\"",
+    "tslint": "tslint --format stylish --project .",
+    "lint": "npm run tslint && npm run prettier"
   },
-  "version": "2.1.1"
+  "version": "3.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
